@@ -36,10 +36,10 @@ class AuthControllerTests {
         mockMvc.perform(post("/auth/login")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("""
-                                 {
-                                            "email": "test@test.com",
-                                            "password": "password"
-                                        }
+                                {
+                                    "email": "test@test.com",
+                                    "password": "password"
+                                }
                                 """))
                 .andExpect(status().isOk());
     }

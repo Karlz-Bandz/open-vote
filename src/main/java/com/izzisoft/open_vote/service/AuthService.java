@@ -1,5 +1,6 @@
 package com.izzisoft.open_vote.service;
 
+import com.izzisoft.open_vote.config.JwtGenerator;
 import com.izzisoft.open_vote.dto.AppUserLoginRequest;
 import com.izzisoft.open_vote.dto.AppUserRegisterRequest;
 import com.izzisoft.open_vote.dto.AppUserResponse;
@@ -22,10 +23,18 @@ public class AuthService {
 
     private final AppUserRepo appUserRepo;
 
-    public AuthService(PasswordEncoder passwordEncoder, AuthenticationManager authenticationManager, AppUserRepo appUserRepo) {
+    private final JwtGenerator jwtGenerator;
+
+    public AuthService(
+            PasswordEncoder passwordEncoder,
+            AuthenticationManager authenticationManager,
+            AppUserRepo appUserRepo,
+            JwtGenerator jwtGenerator
+            ) {
         this.passwordEncoder = passwordEncoder;
         this.authenticationManager = authenticationManager;
         this.appUserRepo = appUserRepo;
+        this.jwtGenerator = jwtGenerator;
     }
 
     public String loginUser(AppUserLoginRequest appUserLoginRequest) {
@@ -35,7 +44,7 @@ public class AuthService {
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
-        return "Login success!";
+        return jwtGenerator.generateToken(authentication);
     }
 
     public AppUserResponse registerUser(AppUserRegisterRequest appUserRegisterRequest) {
