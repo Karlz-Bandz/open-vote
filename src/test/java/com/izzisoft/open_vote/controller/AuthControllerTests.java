@@ -1,9 +1,11 @@
 package com.izzisoft.open_vote.controller;
 
+import com.izzisoft.open_vote.config.JwtGenerator;
 import com.izzisoft.open_vote.config.SecurityConfig;
 import com.izzisoft.open_vote.dto.AppUserLoginRequest;
 import com.izzisoft.open_vote.dto.AppUserRegisterRequest;
 import com.izzisoft.open_vote.dto.AppUserResponse;
+import com.izzisoft.open_vote.service.AppUserDetailsService;
 import com.izzisoft.open_vote.service.AuthService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +29,12 @@ class AuthControllerTests {
 
     @MockitoBean
     private AuthService authService;
+
+    @MockitoBean
+    private JwtGenerator jwtGenerator;
+
+    @MockitoBean
+    private AppUserDetailsService appUserDetailsService;
 
     @Test
     void shouldLoginUser() throws Exception {
