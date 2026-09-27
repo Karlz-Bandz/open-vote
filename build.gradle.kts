@@ -29,6 +29,7 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-starter-data-jpa-test")
 	testImplementation("org.springframework.boot:spring-boot-starter-security-test")
 	testImplementation("org.springframework.boot:spring-boot-starter-webmvc-test")
+    testImplementation("com.h2database:h2:2.5.250")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 

@@ -1,12 +1,12 @@
 package com.izzisoft.open_vote.controller;
 
-import com.izzisoft.open_vote.config.JwtGenerator;
-import com.izzisoft.open_vote.config.SecurityConfig;
+import com.izzisoft.open_vote.security_config.JwtGenerator;
+import com.izzisoft.open_vote.security_config.SecurityConfig;
 import com.izzisoft.open_vote.dto.AppUserLoginRequest;
 import com.izzisoft.open_vote.dto.AppUserRegisterRequest;
 import com.izzisoft.open_vote.dto.AppUserResponse;
-import com.izzisoft.open_vote.service.AppUserDetailsService;
-import com.izzisoft.open_vote.service.AuthService;
+import com.izzisoft.open_vote.service.security.AppUserDetailsService;
+import com.izzisoft.open_vote.service.security.AuthService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;

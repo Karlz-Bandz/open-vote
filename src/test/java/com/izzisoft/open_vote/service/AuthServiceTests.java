@@ -1,11 +1,12 @@
 package com.izzisoft.open_vote.service;
 
-import com.izzisoft.open_vote.config.JwtGenerator;
+import com.izzisoft.open_vote.security_config.JwtGenerator;
 import com.izzisoft.open_vote.dto.AppUserLoginRequest;
 import com.izzisoft.open_vote.dto.AppUserRegisterRequest;
 import com.izzisoft.open_vote.dto.AppUserResponse;
 import com.izzisoft.open_vote.model.AppUser;
 import com.izzisoft.open_vote.repo.AppUserRepo;
+import com.izzisoft.open_vote.service.security.AuthService;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

@@ -1,6 +1,6 @@
-package com.izzisoft.open_vote.config;
+package com.izzisoft.open_vote.security_config;
 
-import com.izzisoft.open_vote.service.AppUserDetailsService;
+import com.izzisoft.open_vote.service.security.AppUserDetailsService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

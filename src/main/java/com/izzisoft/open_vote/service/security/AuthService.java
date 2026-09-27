@@ -1,6 +1,6 @@
-package com.izzisoft.open_vote.service;
+package com.izzisoft.open_vote.service.security;
 
-import com.izzisoft.open_vote.config.JwtGenerator;
+import com.izzisoft.open_vote.security_config.JwtGenerator;
 import com.izzisoft.open_vote.dto.AppUserLoginRequest;
 import com.izzisoft.open_vote.dto.AppUserRegisterRequest;
 import com.izzisoft.open_vote.dto.AppUserResponse;

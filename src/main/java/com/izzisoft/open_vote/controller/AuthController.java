@@ -3,7 +3,7 @@ package com.izzisoft.open_vote.controller;
 import com.izzisoft.open_vote.dto.AppUserLoginRequest;
 import com.izzisoft.open_vote.dto.AppUserRegisterRequest;
 import com.izzisoft.open_vote.dto.AppUserResponse;
-import com.izzisoft.open_vote.service.AuthService;
+import com.izzisoft.open_vote.service.security.AuthService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

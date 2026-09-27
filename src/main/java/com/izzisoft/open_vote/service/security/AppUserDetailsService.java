@@ -1,4 +1,4 @@
-package com.izzisoft.open_vote.service;
+package com.izzisoft.open_vote.service.security;
 
 import com.izzisoft.open_vote.model.AppUser;
 import com.izzisoft.open_vote.model.AppUserRole;

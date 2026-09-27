@@ -1,6 +1,6 @@
-package com.izzisoft.open_vote.config;
+package com.izzisoft.open_vote.security_config;
 
-import com.izzisoft.open_vote.service.AppUserDetailsService;
+import com.izzisoft.open_vote.service.security.AppUserDetailsService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;

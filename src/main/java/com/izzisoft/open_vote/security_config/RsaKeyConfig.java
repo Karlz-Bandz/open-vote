@@ -1,4 +1,4 @@
-package com.izzisoft.open_vote.config;
+package com.izzisoft.open_vote.security_config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
