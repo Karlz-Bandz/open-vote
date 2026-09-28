@@ -34,6 +34,8 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/auth/**")
                         .permitAll()
+                        .requestMatchers("/election/**")
+                        .hasRole("ADMIN")
                         .anyRequest()
                         .authenticated()
                 )
