@@ -3,9 +3,11 @@ package com.izzisoft.open_vote.security_config;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
+import java.util.List;
 
 @Component
 public class JwtGenerator {
@@ -18,11 +20,18 @@ public class JwtGenerator {
 
     public String generateToken(Authentication authentication) {
         String username = authentication.getName();
+
+        List<String> roles = authentication.getAuthorities()
+                .stream()
+                .map(GrantedAuthority::getAuthority)
+                .toList();
+
         Date currentDate = new Date();
         Date expireDate = new Date(currentDate.getTime() + SecurityConstants.JWT_EXPIRATION);
 
         return Jwts.builder()
                 .subject(username)
+                .claim("roles", roles)
                 .issuedAt(currentDate)
                 .expiration(expireDate)
                 .signWith(rsaKeyConfig.privateKey())
