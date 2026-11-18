@@ -1,5 +1,6 @@
 package com.izzisoft.open_vote.controller;
 
+import com.izzisoft.open_vote.dto.AppUserLoginResponse;
 import com.izzisoft.open_vote.security_config.JwtGenerator;
 import com.izzisoft.open_vote.security_config.SecurityConfig;
 import com.izzisoft.open_vote.dto.AppUserLoginRequest;
@@ -39,7 +40,7 @@ class AuthControllerTests {
     @Test
     void shouldLoginUser() throws Exception {
         when(authService.loginUser(any(AppUserLoginRequest.class)))
-                .thenReturn("Login success!");
+                .thenReturn(new AppUserLoginResponse("token"));
 
         mockMvc.perform(post("/auth/login")
                         .contentType(MediaType.APPLICATION_JSON)

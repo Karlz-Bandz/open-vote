@@ -1,6 +1,7 @@
 package com.izzisoft.open_vote.controller;
 
 import com.izzisoft.open_vote.dto.AppUserLoginRequest;
+import com.izzisoft.open_vote.dto.AppUserLoginResponse;
 import com.izzisoft.open_vote.dto.AppUserRegisterRequest;
 import com.izzisoft.open_vote.dto.AppUserResponse;
 import com.izzisoft.open_vote.service.security.AuthService;
@@ -28,7 +29,7 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody AppUserLoginRequest appUserLoginRequest) {
+    public ResponseEntity<AppUserLoginResponse> login(@RequestBody AppUserLoginRequest appUserLoginRequest) {
         return new ResponseEntity<>(authService.loginUser(appUserLoginRequest), HttpStatus.OK);
     }
 }

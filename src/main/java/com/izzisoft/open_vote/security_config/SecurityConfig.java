@@ -39,6 +39,7 @@ public class SecurityConfig {
                         .anyRequest()
                         .authenticated()
                 )
+                .cors(cors -> {})
                 .csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .addFilterBefore(

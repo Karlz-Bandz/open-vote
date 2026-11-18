@@ -1,5 +1,6 @@
 package com.izzisoft.open_vote.service.security;
 
+import com.izzisoft.open_vote.dto.AppUserLoginResponse;
 import com.izzisoft.open_vote.security_config.JwtGenerator;
 import com.izzisoft.open_vote.dto.AppUserLoginRequest;
 import com.izzisoft.open_vote.dto.AppUserRegisterRequest;
@@ -37,14 +38,16 @@ public class AuthService {
         this.jwtGenerator = jwtGenerator;
     }
 
-    public String loginUser(AppUserLoginRequest appUserLoginRequest) {
+    public AppUserLoginResponse loginUser(AppUserLoginRequest appUserLoginRequest) {
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(appUserLoginRequest.email(), appUserLoginRequest.password())
         );
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
-        return jwtGenerator.generateToken(authentication);
+        String token = jwtGenerator.generateToken(authentication);
+
+        return new AppUserLoginResponse(token);
     }
 
     public AppUserResponse registerUser(AppUserRegisterRequest appUserRegisterRequest) {

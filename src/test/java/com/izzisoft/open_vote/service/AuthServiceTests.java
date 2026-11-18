@@ -1,5 +1,6 @@
 package com.izzisoft.open_vote.service;
 
+import com.izzisoft.open_vote.dto.AppUserLoginResponse;
 import com.izzisoft.open_vote.security_config.JwtGenerator;
 import com.izzisoft.open_vote.dto.AppUserLoginRequest;
 import com.izzisoft.open_vote.dto.AppUserRegisterRequest;
@@ -63,9 +64,9 @@ class AuthServiceTests {
         when(jwtGenerator.generateToken(any(Authentication.class)))
                 .thenReturn("token");
 
-        String result = authService.loginUser(appUserLoginRequest);
+        AppUserLoginResponse result = authService.loginUser(appUserLoginRequest);
 
-        assertEquals("token", result);
+        assertEquals("token", result.token());
         assertEquals(authentication, SecurityContextHolder.getContext().getAuthentication());
 
         verify(authenticationManager).authenticate(any(UsernamePasswordAuthenticationToken.class));
